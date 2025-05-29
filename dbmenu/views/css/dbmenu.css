@@ -1254,3 +1254,39 @@ p.dbmobile__title_before:hover {
     /* Si se usa hidden-sm-down, se mostrará en md y más grandes */
     /* Asegurar que esto no entre en conflicto con otros estilos de dbmenu_navigation */
 }
+
+/* --- Inicio: Ajustes para dbmenu_burger en móviles --- */
+
+/*
+  Para asegurar que el modal 'left' se oculte completamente fuera de la pantalla
+  antes de la animación de entrada.
+*/
+#dbmenu_burger.modal.fade.left:not(.in) .modal-dialog {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+}
+
+/*
+  Asegurar que el modal, cuando se muestra, esté completamente visible
+  y alineado a la izquierda.
+*/
+#dbmenu_burger.modal.fade.left.in .modal-dialog {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+/*
+  Ajustes específicos para el diálogo del modal #dbmenu_burger.
+*/
+#dbmenu_burger .modal-dialog {
+    position: fixed; /* Importante para el posicionamiento de pantalla completa y transiciones */
+    top: 0;
+    left: 0; /* Alineado a la izquierda */
+    float: none; /* Eliminar el float */
+    /* width: 100%; Se mantiene el width: 100% que ya estaba antes para el modal-dialog */
+    /* max-width: 320px; Se mantiene el max-width que ya estaba */
+    /* height: 100vh; Se mantiene el height que ya estaba */
+    /* margin: 0; Se mantiene el margin que ya estaba */
+}
+
+/* --- Fin: Ajustes para dbmenu_burger en móviles --- */
