@@ -58,7 +58,7 @@ class Dbmenu extends Module
         $this->displayName = $this->l('DB Menú');
         $this->description = $this->l('Menu personalizado optimizado para mobile');
 
-        $this->ps_versions_compliancy = array('min' => '1.7', 'max' => _PS_VERSION_);
+        $this->ps_versions_compliancy = array('min' => '1.7.0', 'max' => '8.1.99');
     }
 
     /**
