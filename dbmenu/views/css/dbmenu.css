@@ -1233,3 +1233,24 @@ p.dbmobile__title_before:hover {
         height: 93%;
     }*/
 }
+
+/* Estilos para el disparador del menú móvil */
+.dbmenu_mobile_trigger_wrapper {
+    text-align: left; /* O center/right según se prefiera */
+    padding: 5px;
+    /* Considerar añadir un z-index alto si otros elementos del header lo tapan */
+    /* z-index: 1050; */ /* Valor típico para elementos sobre modales de Bootstrap */
+}
+
+.dbmenu_mobile_trigger_wrapper .open_dbmenu_mobile .material-icons {
+    font-size: 28px; /* Tamaño del ícono */
+    color: #000; /* Color del ícono, ajustar según el tema */
+    vertical-align: middle;
+}
+
+/* Ajustes para el disparador de escritorio si es necesario */
+.dbmenu_navigation_desktop {
+    /* Si se usa hidden-xs-down, se mostrará en sm y más grandes */
+    /* Si se usa hidden-sm-down, se mostrará en md y más grandes */
+    /* Asegurar que esto no entre en conflicto con otros estilos de dbmenu_navigation */
+}

@@ -24,15 +24,22 @@
 
 <div class="dbmenu">
 
-    {if Context::getContext()->getDevice() < 4}
-        <nav class="container dbmenu_navigation hidden-sm-down">
-            <div class="element_nav">
-            <span class="open_dbmenu" data-toggle="modal" data-target="#dbmenu_burger">
+    {* Disparador del menú para móviles y tablets pequeñas (visible en <992px con Bootstrap 3) *}
+    <div class="dbmenu_mobile_trigger_wrapper hidden-md-up">
+        <span class="open_dbmenu_mobile" data-toggle="modal" data-target="#dbmenu_burger" style="cursor: pointer; display: inline-block; padding: 10px; /* Estilos básicos para asegurar visibilidad */">
+            <i class="material-icons">menu</i>
+        </span>
+    </div>
+
+    {* Disparador del menú para escritorio (visible en >=768px con Bootstrap 3) *}
+    {* Este mantiene el texto "Nuestro catálogo" y se oculta en pantallas muy pequeñas donde el ícono móvil tomará el control *}
+    <nav class="container dbmenu_navigation_desktop hidden-xs-down"> {# hidden-xs-down para mostrar en sm, md, lg... o hidden-sm-down si se prefiere ocultar en sm también #}
+        <div class="element_nav">
+            <span class="open_dbmenu_desktop" data-toggle="modal" data-target="#dbmenu_burger" style="cursor:pointer;">
                 <i class="material-icons">menu</i> {l s='Nuestro catálogo' mod='dbmenu'}
             </span>
-            </div>
-        </nav>
-    {/if}
+        </div>
+    </nav>
 
     <div class="modal fade left" id="dbmenu_burger" tabindex="-1" role="dialog" aria-labelledby="dbmenu_burger_Label" aria-hidden="true">
         <div class="modal-dialog" role="document">

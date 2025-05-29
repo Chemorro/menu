@@ -38,9 +38,9 @@ $(document).ready(function() {
     var subCategoriasPadre = " .open_subitems"
 
     // Adaptamos el dbmenu para que se abra en mobile en todas las plantillas
-    $('#header .header-nav #menu-icon').replaceWith('<span class="open_dbmenu" data-toggle="modal" data-target="#dbmenu_burger">\n' +
-        '<i class="material-icons">menu</i>' +
-        '</span>');
+    // $('#header .header-nav #menu-icon').replaceWith('<span class="open_dbmenu" data-toggle="modal" data-target="#dbmenu_burger">\n' +
+    //     '<i class="material-icons">menu</i>' +
+    //     '</span>');
 
     /* Sobre las categorias padres del menú */
     var MenuPrincipal = function(accion){
