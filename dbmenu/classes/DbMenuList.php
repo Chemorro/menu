@@ -53,7 +53,7 @@ class DbMenuList extends ObjectModel
             'type' =>		    array('type' => self::TYPE_STRING, 'validate' => 'isCleanHtml', 'required' => true),
             'id_item' =>		array('type' => self::TYPE_INT, 'validate' => 'isunsignedInt', 'required' => false),
             'strong' =>		    array('type' => self::TYPE_BOOL, 'validate' => 'isBool', 'required' => false),
-            'color' =>		    array('type' => self::TYPE_STRING, 'validate' => 'isCleanHtml', 'required' => false, 'size' => 10),
+            'color' =>		    array('type' => self::TYPE_STRING, 'validate' => 'isColor', 'required' => false, 'size' => 7),
             'ofuscate' =>		array('type' => self::TYPE_BOOL, 'validate' => 'isBool', 'required' => false),
             'additional' =>		array('type' => self::TYPE_BOOL, 'validate' => 'isBool', 'required' => false),
             'featured' =>		array('type' => self::TYPE_BOOL, 'validate' => 'isBool', 'required' => false),
@@ -153,6 +153,19 @@ class DbMenuList extends ObjectModel
 
 
     public static function getContentLink($id_lang, $parent){
+        if ($parent['type'] != 'url' && $parent['type'] != 'category') {
+            PrestaShopLogger::addLog(
+                "DbMenuList: Tipo de enlace desconocido - '".$parent['type']."' para id_dbmenu_list ".$parent['id_dbmenu_list'].". Forzando a URL '#'.",
+                2,
+                null,
+                'DbMenuList',
+                (int)$parent['id_dbmenu_list'],
+                true
+            );
+            $url = '#';
+            $parent['type'] = 'url'; // Force to 'url' as a safe default
+        }
+
         $link = new Link();
         if($parent['type'] == 'url'){
             $url = $parent['url'];
